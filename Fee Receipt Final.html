@@ -1,0 +1,249 @@
+<html>
+<head>
+	<title>
+     Fees Receipt 
+    </title>
+    <!--    JQUERY CDN START -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!--     JQUERY CDN END  -->
+<script>
+          $(document).ready(function()
+          {
+            $("#gst").change(function()
+            {
+                var pname=parseInt($("#gst").val());
+                var aname=parseInt($("#amt").val());
+                var a=aname*pname/100;
+                var b=a/2;
+                var c=a/2
+                var d=aname+a;
+                $("#includegst").val(a);
+                $("#cgst").val(b);
+                $("#sgst").val(c);
+                $("#total").val(d);
+                //alert(a);            
+            });
+          });
+          $(document).ready(function()
+          {
+            $("#uname").keyup(function()
+            {
+              var ul=$("#uname").val().length;
+              $("#name_error").text(ul);
+              if(ul>0)
+              {
+                $("#name_error").text("");
+                $("#name_error").css("color","red");
+              }
+              if(ul<1)
+              {
+                $("#name_error").text("Please Input Name");
+                $("#name_error").css("color","red");
+              }
+            });
+          });
+          $( document ).ready(function() {
+                $( "#uname" ).keypress(function(e) {
+                    var key = e.keyCode;
+                    if (key >= 48 && key <= 57) {
+                        e.preventDefault();
+                    }
+                });
+            });
+  </script>
+<!-- ------------------------------------------------------------------------------------------------------------------------ -->
+  <style>
+	#container 
+ 	{
+    position: absolute; 
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    background-image: linear-gradient(white, darkseagreen);
+    border-style: double;
+    border-color: black;
+    border-width: 3px;
+    width: 700px;
+    height: 700px; 
+    }
+    #center
+    {
+    	position: absolute;
+        text-align: center;
+    	font-size: 45px;
+        transform: translate(100%);
+    	margin-top: 20px;
+    }
+    #address
+    {
+    	position: absolute;
+        transform: translate(50%);
+    	font-size: 20px;
+    	margin-top: 80px;
+    }
+    
+    #mrecp
+    {
+    	font-size: 20px;
+      border-style: solid;
+      border-width: 2px;
+      width: 695px;
+      position: absolute;
+      margin-top: 120px;
+      text-align: center;
+    }
+    #stu_name
+      {
+        position:absolute ;
+      	margin-top: 170px;
+        margin-left:120px ;
+        font-size: 25px;
+    }
+    #date
+      {
+        position:absolute ;
+        margin-left:500px ;
+        margin-top: 220px;
+        font-size: 26px;
+    }
+    #maintable
+    {
+        position: absolute;
+        margin-left: 80px;
+        margin-top: 290px;
+
+    }
+    #unamm
+    {
+        position: absolute;
+        margin-left: 120px;
+        margin-top: 170px;
+        font-size: 22px;
+
+    }
+</style>
+</head>
+<!-- -------------------------------------------------------------------------------------------------------------------- -->
+<body>
+     <div id="container">
+          <div id="center">
+          Abc Institute 
+          </div>
+               <div id="address">
+                  Vijay Nagar, Indore (M.P.) Ph. 0731-8888888
+                </div>
+             <div>
+      	     <table border="1px" style="width: 700px; 
+                                        text-align: center;
+                                        position: absolute;
+                                        margin-top: 120px;
+                                        font-size: 25px;">
+                   <tr>
+  	                <td>Receipt</td>
+                     </tr>
+            </table>
+             </div>
+             <div>
+             	<table>
+             		<tr>
+             			<td>
+             			    
+ 
+                        <div id="unamm"> Name of The Student:- 
+                        <input type="text" name="" id="uname"   style="height: 26px;  ">
+                        <span id="name_error"></span></div> 
+
+
+                        <p id="date">Date:-  <input type="date" name="" style="height: 30px; font-size: 10pt;">
+                        </p> 
+
+
+             			</td>
+             		</tr>
+             	</table>
+<!-- --------------------------------Table Code starts ------------------------------------------ -->
+                <div id="maintable">
+                     <table style=" width: 550;height: 350;font-size: 18px" border="2px">
+                <tr>
+                     <th>COURSES OFFERED BY INSTITUTE</th>
+                     <th>COURSES FEE</th>
+               </tr>
+               <tr style="text-align: center; font-size: 30px;">
+                    <td >Course</td>
+                    <td>   
+               <select style="width: 100;
+                              height:30px;
+                              font-size:23px; 
+                              text-align: 
+                              center;width: 130px;"> 
+                              <option>C/C++</option>
+                              <option>Java</option>
+                              <option>Python</option>
+                              <option>Php</option>
+                              <option>Frontend</option>
+                     </select>
+                     </td>
+                     </tr>
+               <tr style="text-align: center;font-size: 30px;">
+                   <td >Pay Fees</td>
+                   <td >
+                      <input  type="text" name="" class="amount" id="amt" 
+                            style="width: 110px;height: 30px;font-size: 20px">
+                   </td>
+               </tr>
+               <tr style="text-align: center;">
+                 <td> 
+                  <select style="height: 30px;font-size: 20;" 
+                          oncnge="m()" id="gst">
+                       <option style="text-align: center;">GST Percent</option>
+                       <option value="12">12% GST AMOUNT</option> 
+                       <option value="18">18% GST AMOUNT</option>
+                       <option value="28">28% GST AMOUNT</option>
+                  </select>
+                  <td>
+                       <input type="number" name="" id="includegst" 
+                              style="width: 110px;height:30px;font-size: 20px" 
+                              readonly>
+                  </td>
+                       <tr style="text-align: center;font-size: 30px">
+                       <td>CGST </td>
+                  <td>  
+                       <input type="number" name="" id="cgst" 
+                        style="width: 110px;;height:30px;font-size: 20px" 
+                        readonly>
+                  </td>
+                 </tr>
+                 <tr style="text-align: center;font-size: 30px">
+                       <td >SGST </td>
+                       <td> 
+                       <input type="number" name="" id="sgst" 
+                              style="width: 110px;height:30px;font-size: 20px" 
+                              readonly>
+                      </td>
+                 </tr>
+                 <tr style="text-align: center;font-size: 30px">
+                      <td>
+                       Total Fee Include Tax
+                      </td>
+                <td>
+                     <input type="number" name=""  id="total" 
+                     style="width: 110px;height:30px;font-size: 20px" 
+                     readonly>
+                </td>
+               </tr>
+</div>
+                  <!--------------------------------------------Table Code End--------------------------------------  -->
+</body>
+                  <!-- -----------------------------------------Print Button start----------------------------------------- -->
+                   <button 
+                     onclick="window.print()" style=
+                                            "margin-top: 370px;
+                                            margin-left: 230px;
+                                             position: absolute;
+                                             font-size: 17px;  ">
+                      Print
+                  </button>
+                  </div>
+                  <!---------------------------------------Print Button End------------------------------------------------ -->
+</body>
+</html>
